@@ -26,7 +26,7 @@ public class CSAddonConfig {
         FileConfiguration weapons = YamlConfiguration.loadConfiguration(weaFile);
         armorDefenderSet.clear();
         for (String key : weapons.getKeys(false)) {
-            String lore = weapons.getString(key + ".lore");
+            String lore = ".*" + weapons.getString(key + ".lore").replaceAll("&[a-fA-F0-9]", "") + ".*";
             Map<Material,Double> defend = new HashMap<>();
             for (String line : weapons.getStringList(key + ".armors")) {
                 String[] l = line.split(":");

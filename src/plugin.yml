@@ -1,6 +1,6 @@
 name: CrackShotAddon
 main: com.ericlam.mc.crackshot.addon.main.CSAddon
-version: "1.6.0"
+version: "1.6.1"
 author: Hydranapse_
 depend: [CrackShot]
 commands:
