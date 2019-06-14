@@ -35,7 +35,7 @@ public class Tools {
         main:
         for (String line : item.getItemMeta().getLore()) {
             for (ArmorDefender defender : CSAddon.getArmorSet()) {
-                if (line.matches(defender.getLore())) {
+                if (line.replaceAll("§[a-fA-F0-9]", "").matches(defender.getLore())) {
                     armorDefender = defender;
                     break main;
                 }
