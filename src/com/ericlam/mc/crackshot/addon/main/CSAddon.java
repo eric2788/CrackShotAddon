@@ -28,7 +28,7 @@ public class CSAddon extends JavaPlugin implements Listener {
     private static CSAddon plugin;
 
     public static String getStatTrakTag() {
-        return statTrakTag.replaceAll("&[a-fA-F0-9]", "");
+        return statTrakTag;
     }
 
     public static CSDirector csDirector;
@@ -93,7 +93,7 @@ public class CSAddon extends JavaPlugin implements Listener {
         final double origninal_damage = e.getDamage();
         Player player = e.getPlayer();
         ItemStack gun = player.getInventory().getItemInMainHand();
-        if (Tools.isStatTrak(gun) && Tools.isNotOwner(gun, player)) {
+        if (Tools.isNotOwner(gun, player)) {
             e.setCancelled(true);
             this.sendMessage("messages.not-owner",player);
             return;
@@ -116,7 +116,7 @@ public class CSAddon extends JavaPlugin implements Listener {
     public void onPreShoot(WeaponPrepareShootEvent e) {
         Player player = e.getPlayer();
         ItemStack gun = player.getInventory().getItemInMainHand();
-        if (Tools.isStatTrak(gun) && Tools.isNotOwner(gun, player)) {
+        if (Tools.isNotOwner(gun, player)) {
             e.setCancelled(true);
             this.sendMessage("messages.not-owner",player);
         }
@@ -126,7 +126,7 @@ public class CSAddon extends JavaPlugin implements Listener {
     public void onAttachToggle(WeaponAttachmentToggleEvent e){
         Player player = e.getPlayer();
         ItemStack gun = player.getInventory().getItemInMainHand();
-        if (Tools.isStatTrak(gun) && Tools.isNotOwner(gun, player)) {
+        if (Tools.isNotOwner(gun, player)) {
             e.setCancelled(true);
             this.sendMessage("messages.not-owner",player);
         }
@@ -136,7 +136,7 @@ public class CSAddon extends JavaPlugin implements Listener {
     public void onWeaponScope(WeaponScopeEvent e){
         Player player = e.getPlayer();
         ItemStack gun = player.getInventory().getItemInMainHand();
-        if (Tools.isStatTrak(gun) && Tools.isNotOwner(gun, player)) {
+        if (Tools.isNotOwner(gun, player)) {
             e.setCancelled(true);
             this.sendMessage("messages.not-owner",player);
         }
@@ -147,7 +147,7 @@ public class CSAddon extends JavaPlugin implements Listener {
         Player player = e.getPlayer();
         if (!player.isOnline()) return;
         ItemStack gun = player.getInventory().getItemInMainHand();
-        if (Tools.isStatTrak(gun) && Tools.isNotOwner(gun, player)) {
+        if ( Tools.isNotOwner(gun, player)) {
             e.setCancelled(true);
             this.sendMessage("messages.not-owner",player);
         }
